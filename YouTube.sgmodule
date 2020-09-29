@@ -1,5 +1,5 @@
-#!name=YouTube
-#!desc=YouTube videos removes ads.
+#!name=YouTube ADBlocker
+#!desc=YouTube videos removes ads. 20200929可用
 
 [Rule]
 URL-REGEX,https?:\/\/.+.googlevideo.com\/ptracking\?pltype=adhost,REJECT
