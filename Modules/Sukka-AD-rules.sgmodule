@@ -1,3 +1,9 @@
+
+#!name=Sukka-AD-rules
+#!desc=Sukka的擋廣告規則, https://blog.skk.moe/post/i-have-my-unique-surge-setup/
+#!system=ios
+
+[Rule]
 DOMAIN-SET,https://ruleset.skk.moe/List/domainset/reject.conf,REJECT,extended-matching
 RULE-SET,https://ruleset.skk.moe/List/non_ip/reject.conf,REJECT,extended-matching
 
