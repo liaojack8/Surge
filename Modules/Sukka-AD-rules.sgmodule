@@ -1,0 +1,5 @@
+DOMAIN-SET,https://ruleset.skk.moe/List/domainset/reject.conf,REJECT,extended-matching
+RULE-SET,https://ruleset.skk.moe/List/non_ip/reject.conf,REJECT,extended-matching
+
+RULE-SET,https://ruleset.skk.moe/List/non_ip/reject-no-drop.conf,REJECT-NO-DROP,extended-matching
+RULE-SET,https://ruleset.skk.moe/List/non_ip/reject-drop.conf,REJECT-DROP,extended-matching
