@@ -2,6 +2,9 @@
 把LINE VOOM 擋起來 \
 https://raw.githubusercontent.com/liaojack8/Surge/master/Modules/LINE-Kill-VOOM.sgmodule
 
+去除LINE TODAY的興趣追蹤與留言 \
+https://raw.githubusercontent.com/liaojack8/Surge/master/Modules/LINE-TODAY-NoTrace.sgmodule
+
 巴哈姆特簽到腳本（安裝前請先閱讀模組內容）\
 https://github.com/jimmyorz/Surge/raw/master/BahamutDailyBonus.sgmodule 
 - 或參考 https://www.jkg.tw/p3603/ 手動設定
