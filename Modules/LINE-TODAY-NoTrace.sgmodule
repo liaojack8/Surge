@@ -3,9 +3,9 @@
 #!system=ios
 
 [Rule]
-#URL-REGEX,^https:\/\/today\.line\.me\/webapi\/*.*,REJECT
 #URL-REGEX,^https:\/\/today\.line\.me\/api\/*.*,REJECT
-URL-REGEX,^https:\/\/today\.line\.me\/webapi\/logging*.*,REJECT
+URL-REGEX,^https:\/\/today\.line\.me\/webapi\/interactioin\/*.*,REJECT
+URL-REGEX,^https:\/\/today\.line\.me\/webapi\/logging\/*.*,REJECT
 URL-REGEX,^https:\/\/sentry-uit\.line-apps\.com\/api\/*.*,REJECT
 
 [Header Rewrite]
