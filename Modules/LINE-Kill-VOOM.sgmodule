@@ -4,15 +4,11 @@
 
 [Rule]
 URL-REGEX,^https:\/\/voom-obs\.line-scdn\.net*,REJECT
+#videohub
 URL-REGEX,^https:\/\/legy\.line-apps\.com\/ext\/videohub\/*.*,REJECT
-URL-REGEX,^https:\/\/legy\.line-apps\.com\/tl\/discover\/api\/v(\d{1}|\d{2})\/*.*,REJECT
-URL-REGEX,^https:\/\/legy\.line-apps\.com\/tl\/api\/v(\d{1}|\d{2}|\d{3})\/timeline\/*.*,REJECT
-URL-REGEX,^https:\/\/legy\.line-apps\.com\/st\/api\/v(\d{1}|\d{2})\/story\/*.*,REJECT
+#tl = timeline
+URL-REGEX,^https:\/\/legy\.line-apps\.com\/tl\/*.*,REJECT
 URL-REGEX,^https:\/\/sentry-uit\.line-apps\.com\/api\/*.*,REJECT
-URL-REGEX,^https:\/\/today\.line\.me\/webapi\/*.*,REJECT
-URL-REGEX,^https:\/\/today\.line\.me\/api\/*.*,REJECT
-
-#URL-REGEX,^https:\/\/legy\.line-apps\.com\/hm\/api\/v(\d{1}|\d{2})\/home\/*.*,REJECT
 
 [MITM]
 hostname = %APPEND% legy.line-apps.com, voom-obs.line-scdn.net
