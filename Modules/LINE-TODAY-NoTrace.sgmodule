@@ -7,8 +7,10 @@
 #URL-REGEX,^https:\/\/today\.line\.me\/api\/*.*,REJECT
 
 [Header Rewrite]
-http-request https:\/\/today\.line\.me\/tw\/*.* header-del cookie
-http-request https:\/\/today\.line\.me\/tw\/*.* header-del x-line-liff-token
+http-request https:\/\/today\.line\.me\/*.* header-del cookie
+http-request https:\/\/today\.line\.me\/*.* header-del x-line-liff-token
+http-request https:\/\/today\.line\.me\/*.* header-del x-line-accesstoken
+http-request https:\/\/today\.line\.me\/*.* header-del _uts_cid
 
 [MITM]
 hostname = %APPEND% today.line.me
