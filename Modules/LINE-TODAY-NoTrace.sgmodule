@@ -5,12 +5,17 @@
 [Rule]
 #URL-REGEX,^https:\/\/today\.line\.me\/webapi\/*.*,REJECT
 #URL-REGEX,^https:\/\/today\.line\.me\/api\/*.*,REJECT
+URL-REGEX,^https:\/\/today\.line\.me\/webapi\/logging\/article\/read*.*,REJECT
+URL-REGEX,^https:\/\/sentry-uit\.line-apps\.com\/api\/*.*,REJECT
 
 [Header Rewrite]
 http-request https:\/\/today\.line\.me\/*.* header-del cookie
-http-request https:\/\/today\.line\.me\/*.* header-del x-line-liff-token
 http-request https:\/\/today\.line\.me\/*.* header-del x-line-accesstoken
+http-request https:\/\/today\.line\.me\/*.* header-del x-line-liff-accesstoken
 http-request https:\/\/today\.line\.me\/*.* header-del _uts_cid
+http-request https:\/\/today\.line\.me\/*.* header-del public_key
+http-request https:\/\/today\.line\.me\/*.* header-del sentry-trace_id
+http-request https:\/\/today\.line\.me\/*.* header-del sentry-trace
 
 [MITM]
 hostname = %APPEND% today.line.me
