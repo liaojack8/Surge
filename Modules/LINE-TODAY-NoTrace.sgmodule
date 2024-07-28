@@ -1,5 +1,5 @@
 #!name=Kill LINE-TODAY Login
-#!desc=去除LINE TODAY瀏覽時的登入狀態，阻擋新聞興趣追蹤 v20240627.02 - 需啟用 MitM over HTTP/2
+#!desc=去除LINE TODAY瀏覽時的登入狀態，阻擋新聞興趣追蹤 v20240728.01 - 需啟用 MitM over HTTP/2
 #!system=ios
 
 [Rule]

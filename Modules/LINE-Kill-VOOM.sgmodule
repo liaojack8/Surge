@@ -1,5 +1,5 @@
 #!name=Kill LINE VOOM
-#!desc=刪掉 LINE 惱人的VOOM v20240607.01 - 需啟用 MitM over HTTP/2
+#!desc=刪掉 LINE 惱人的VOOM v20240728.01 - 需啟用 MitM over HTTP/2
 #!system=ios
 
 [Rule]
