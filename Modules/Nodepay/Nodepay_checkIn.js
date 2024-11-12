@@ -28,10 +28,14 @@
         if (response.status === 200) {
             const obj = JSON.parse(data);
             try {
-              if (obj.status === 1) {
+              if (obj.code === 0) {
                 NodepayNotify(
-                  '目前點數',
+                  '領取成功',
                   '獲得 ' + obj.result.data.earned_points + ' 積分'
+                );
+              }else if (obj.code === 400) {
+                NodepayNotify(
+                  '尚無法領取，請等待下一輪檢查'
                 );
               } else {
                 NodepayNotify(
