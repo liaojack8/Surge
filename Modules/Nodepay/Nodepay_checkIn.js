@@ -10,11 +10,14 @@
       'authorization': $persistentStore.read('NodepayToken'),
       'User-Agent': $persistentStore.read('NodepayUA'),
 
+    },
+    body:{
+        "mission_id": "19"
     }
   };
   
   function checkin() {
-    $httpClient.get(checkinRequest, function (error, response, data) {
+    $httpClient.post(checkinRequest, function (error, response, data) {
       if (error) {
         NodepayNotify(
           '簽到失敗 ‼️',
