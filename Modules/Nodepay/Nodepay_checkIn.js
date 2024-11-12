@@ -31,12 +31,12 @@
             try {
               if (obj.code === 0) {
                 NodepayNotify(
-                  '領取成功',
-                  '獲得 ' + obj.result.data.earned_points + ' 積分'
+                  '簽到成功' + obj.msg,
+                  '獲得 ' + obj.data.earned_points + ' 點數'
                 );
               }else if (obj.code === 400) {
                 NodepayNotify(
-                  '任務不可用'
+                  '簽到失敗' + obj.msg
                 );
               } else {
                 NodepayNotify(

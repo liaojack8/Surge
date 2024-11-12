@@ -12,9 +12,7 @@
       'content-type': 'application/json'
 
     },
-    body:{
-        "mission_id": "19"
-    }
+    body:"{\"mission_id\": \"19\"}"
   };
   
   function checkin() {
@@ -31,11 +29,12 @@
             try {
               if (obj.code === 0) {
                 NodepayNotify(
-                  '領取成功',
-                  '獲得 ' + obj.result.data.earned_points + ' 積分'
+                  '領取成功' + obj.msg,
+                  '獲得 ' + obj.data.earned_points + ' 積分'
                 );
               }else if (obj.code === 400) {
                 NodepayNotify(
+                  '領取失敗' + obj.msg,
                   '尚無法領取，請等待下一輪檢查'
                 );
               } else {
