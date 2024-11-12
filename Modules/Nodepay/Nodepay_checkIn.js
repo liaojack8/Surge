@@ -9,6 +9,7 @@
     headers: {
       'authorization': $persistentStore.read('NodepayToken'),
       'User-Agent': $persistentStore.read('NodepayUA'),
+      'content-type': 'application/json'
 
     },
     body:{
