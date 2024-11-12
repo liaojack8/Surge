@@ -1,10 +1,12 @@
 #!name=Kill LINE-TODAY Login
-#!desc=去除LINE TODAY瀏覽時的登入狀態，阻擋新聞興趣追蹤 v20240627.02 - 需啟用 MitM over HTTP/2
+#!desc=去除LINE TODAY瀏覽時的登入狀態，阻擋新聞興趣追蹤 v20240728.01 - 需啟用 MitM over HTTP/2
 #!system=ios
 
 [Rule]
 URL-REGEX,^https:\/\/today\.line\.me\/api\/user\/*.*,REJECT
+#block reader interaction
 URL-REGEX,^https:\/\/today\.line\.me\/webapi\/interaction\/*.*,REJECT
+#block read history
 URL-REGEX,^https:\/\/today\.line\.me\/webapi\/logging\/*.*,REJECT
 URL-REGEX,^https:\/\/sentry-uit\.line-apps\.com\/api\/*.*,REJECT
 
@@ -14,9 +16,7 @@ http-request https:\/\/today\.line\.me\/*.* header-del x-line-liff-token
 http-request https:\/\/today\.line\.me\/*.* header-del x-line-accesstoken
 http-request https:\/\/today\.line\.me\/*.* header-del x-line-liff-accesstoken
 http-request https:\/\/today\.line\.me\/*.* header-del _uts_cid
-http-request https:\/\/today\.line\.me\/*.* header-del public_key
-http-request https:\/\/today\.line\.me\/*.* header-del sentry-trace_id
-http-request https:\/\/today\.line\.me\/*.* header-del sentry-trace
+http-request https:\/\/today\.line\.me\/*.* header-del baggage
 
 [MITM]
 hostname = %APPEND% today.line.me

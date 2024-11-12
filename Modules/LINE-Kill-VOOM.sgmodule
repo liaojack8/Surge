@@ -1,5 +1,5 @@
 #!name=Kill LINE VOOM
-#!desc=刪掉 LINE 惱人的VOOM v20240607.01 - 需啟用 MitM over HTTP/2
+#!desc=刪掉 LINE 惱人的VOOM v20240728.01 - 需啟用 MitM over HTTP/2
 #!system=ios
 
 [Rule]
@@ -10,5 +10,12 @@ URL-REGEX,^https:\/\/legy\.line-apps\.com\/ext\/videohub\/*.*,REJECT
 URL-REGEX,^https:\/\/legy\.line-apps\.com\/tl\/*.*,REJECT
 URL-REGEX,^https:\/\/sentry-uit\.line-apps\.com\/api\/*.*,REJECT
 
+[Header Rewrite]
+http-request https:\/\/legy\.line-apps\.com\/eg\/lin\/*.* header-del cookie
+http-request https:\/\/legy\.line-apps\.com\/eg\/lin\/*.* header-del x-line-channeltoken
+http-request https:\/\/legy\.line-apps\.com\/ma\/*.* header-del cookie
+http-request https:\/\/legy\.line-apps\.com\/ma\/*.* header-del x-line-channeltoken
+http-request https:\/\/legy\.line-apps\.com\/ma\/*.* header-del x-line-mid
+
 [MITM]
-hostname = %APPEND% legy.line-apps.com, voom-obs.line-scdn.net
+hostname = %APPEND% sentry-uit.line-apps.com, legy.line-apps.com, voom-obs.line-scdn.net
