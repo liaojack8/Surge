@@ -1,9 +1,9 @@
 #!name=Nodepay 定期簽到
-#!desc=每日簽到+定時(每4小時)自動簽到，領積分，首次使用要到"交易紀錄"頁面取得token v20241112.4
+#!desc=每日簽到+定時(每4小時)自動簽到，領積分，首次使用要到"交易紀錄"頁面取得token v20241113.1
 
 [Script]
 [Nodepay]checkIn = type=cron, cronexp="10 0 * * *", script-path=https://raw.githubusercontent.com/liaojack8/surge/master/Modules/Nodepay/Nodepay_checkIn.js, wake-system=1, timeout=5
-[Nodepay]claimDataBlock = type=cron, cronexp="*/4 0 * * *", script-path=https://raw.githubusercontent.com/liaojack8/surge/master/Modules/Nodepay/Nodepay_checkIn_mobile.js, wake-system=1, timeout=5
+[Nodepay]claimDataBlock = type=cron, cronexp="0 */4 * * *", script-path=https://raw.githubusercontent.com/liaojack8/surge/master/Modules/Nodepay/Nodepay_checkIn_mobile.js, wake-system=1, timeout=5
 [Nodepay]getToken = type=http-request, pattern=^https:\/\/api\.nodepay\.ai\/api\/transaction\/history, script-path=https://raw.githubusercontent.com/liaojack8/surge/master/Modules/Nodepay/Nodepay_token.js
 
 [MITM]
