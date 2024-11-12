@@ -36,7 +36,7 @@
                 );
               }else if (obj.code === 400) {
                 NodepayNotify(
-                  '尚無法領取，請等待下一輪檢查'
+                  '任務不可用'
                 );
               } else {
                 NodepayNotify(
