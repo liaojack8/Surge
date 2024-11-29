@@ -1,5 +1,5 @@
   function NodepayNotify(subtitle = '', message = '') {
-    $notification.post('Nodepay 定時簽到', subtitle, message, {
+    $notification.post('Nodepay 每日簽到', subtitle, message, {
       'url': ''
     });
   };
