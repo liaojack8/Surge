@@ -1,5 +1,5 @@
 #!name=Kill LINE VOOM
-#!desc=刪掉 LINE 惱人的VOOM v20241206.01 - 需啟用 MitM over HTTP/2
+#!desc=封鎖 LINE VOOM 的功能，手機將不再加載智障影片 v20241207.01 - 需啟用 MitM over HTTP/2
 #!system=ios
 
 [Rule]
@@ -9,7 +9,7 @@ URL-REGEX,^https://voom-obs.line-scdn.net*,REJECT
 #Block videohub for streaming idiot vids
 URL-REGEX,^https://legy.line-apps.com/ext/videohub/*.*,REJECT
 
-#tl = timeline, but need to unlock official account timeline
+#tl = timeline, but I need to load timeline of official account
 #URL-REGEX,^https://legy.line-apps.com/tl/*.*,REJECT
 
 #Block recommendTab get feeds and data

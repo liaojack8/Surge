@@ -1,22 +1,23 @@
-#!name=Kill LINE-TODAY Login
-#!desc=去除LINE TODAY瀏覽時的登入狀態，阻擋新聞興趣追蹤 v20240728.01 - 需啟用 MitM over HTTP/2
+#!name=Kill LINE TODAY 
+#!desc=去除 LINE TODAY瀏覽時的登入狀態，阻擋噁心的新聞興趣追蹤 v20241207.01 - 需啟用 MitM over HTTP/2，需要重寫Header
 #!system=ios
 
 [Rule]
-URL-REGEX,^https:\/\/today\.line\.me\/api\/user\/*.*,REJECT
-#block reader interaction
-URL-REGEX,^https:\/\/today\.line\.me\/webapi\/interaction\/*.*,REJECT
-#block read history
-URL-REGEX,^https:\/\/today\.line\.me\/webapi\/logging\/*.*,REJECT
-URL-REGEX,^https:\/\/sentry-uit\.line-apps\.com\/api\/*.*,REJECT
+URL-REGEX,^https://today.line.me/api/user/*.*,REJECT
+#Block reader interaction and reply
+URL-REGEX,^https://today\.line.me/webapi/interaction/*.*,REJECT
+#Block read history
+URL-REGEX,^https://today\.line.me/webapi/logging/*.*,REJECT
+URL-REGEX,^https://sentry-uit.line-apps.com/*.*,REJECT
 
 [Header Rewrite]
-http-request https:\/\/today\.line\.me\/*.* header-del cookie
-http-request https:\/\/today\.line\.me\/*.* header-del x-line-liff-token
-http-request https:\/\/today\.line\.me\/*.* header-del x-line-accesstoken
-http-request https:\/\/today\.line\.me\/*.* header-del x-line-liff-accesstoken
-http-request https:\/\/today\.line\.me\/*.* header-del _uts_cid
-http-request https:\/\/today\.line\.me\/*.* header-del baggage
+#Remove token
+http-request https://today.line.me/*.* header-del cookie
+http-request https://today.line.me/*.* header-del x-line-liff-token
+http-request https://today.line.me/*.* header-del x-line-accesstoken
+http-request https://today.line.me/*.* header-del x-line-liff-accesstoken
+http-request https://today.line.me/*.* header-del _uts_cid
+http-request https://today.line.me/*.* header-del baggage
 
 [MITM]
 hostname = %APPEND% today.line.me
