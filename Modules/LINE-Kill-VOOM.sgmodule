@@ -1,21 +1,40 @@
 #!name=Kill LINE VOOM
-#!desc=刪掉 LINE 惱人的VOOM v20240728.01 - 需啟用 MitM over HTTP/2
+#!desc=刪掉 LINE 惱人的VOOM v20241206.01 - 需啟用 MitM over HTTP/2
 #!system=ios
 
 [Rule]
-URL-REGEX,^https:\/\/voom-obs\.line-scdn\.net*,REJECT
-#videohub
-URL-REGEX,^https:\/\/legy\.line-apps\.com\/ext\/videohub\/*.*,REJECT
-#tl = timeline
-URL-REGEX,^https:\/\/legy\.line-apps\.com\/tl\/*.*,REJECT
-URL-REGEX,^https:\/\/sentry-uit\.line-apps\.com\/api\/*.*,REJECT
 
-[Header Rewrite]
-http-request https:\/\/legy\.line-apps\.com\/eg\/lin\/*.* header-del cookie
-http-request https:\/\/legy\.line-apps\.com\/eg\/lin\/*.* header-del x-line-channeltoken
-http-request https:\/\/legy\.line-apps\.com\/ma\/*.* header-del cookie
-http-request https:\/\/legy\.line-apps\.com\/ma\/*.* header-del x-line-channeltoken
-http-request https:\/\/legy\.line-apps\.com\/ma\/*.* header-del x-line-mid
+URL-REGEX,^https://voom-obs.line-scdn.net*,REJECT
+
+#Block videohub for streaming idiot vids
+URL-REGEX,^https://legy.line-apps.com/ext/videohub/*.*,REJECT
+
+#tl = timeline, but need to unlock official account timeline
+#URL-REGEX,^https://legy.line-apps.com/tl/*.*,REJECT
+
+#Block recommendTab get feeds and data
+URL-REGEX,^https://legy.line-apps.com*.*/tl/discover/api/v*.*/recommendTab/feeds$,REJECT
+
+#Block search function
+URL-REGEX,^https://legy.line-apps.com*.*/tl/discover/api/v*.*/collage/searchEntry$,REJECT
+
+#Block followingTab get feeds and data 
+URL-REGEX,^https://legy.line-apps.com*.*/tl/api/v*.*/feed$,REJECT
+URL-REGEX,^https://legy.line-apps.com*.*/tl/api/v*.*/timeline/*.*,REJECT
+
+#Block anything about VOOM for yrself
+URL-REGEX,^https://legy.line-apps.com*.*/st/*.*?/api/v*.*/story/*.*,REJECT
+URL-REGEX,^https://legy.line-apps.com*.*/hm/*.*?/api/v*.*/home/*.*,REJECT
+URL-REGEX,^https://legy.line-apps.com*.*/mh/*.*?/api/v*.*/hashtag/*.*,REJECT
+URL-REGEX,^https://legy.line-apps.com*.*/eg/*.*?/api/v*.*/notification/*.*,REJECT
+URL-REGEX,^https://legy.line-apps.com*.*/eg/*.*?/api/v*.*/notification/*.*,REJECT
+URL-REGEX,^https://legy.line-apps.com*.*/eg/*.*?/api/v*.*/setting/*.*,REJECT
+URL-REGEX,^https://legy.line-apps.com*.*/ma/*.*?/api/v*.*/home/*.*,REJECT
+URL-REGEX,^https://legy.line-apps.com*.*/tl/*.*?/mapi/v*.*/contact/*.*,REJECT
+URL-REGEX,^https://legy.line-apps.com*.*/tl/*.*?/discover/api/v*.*,REJECT
+
+#Fuck Sentry
+URL-REGEX,^https://sentry-uit.line-apps.com/*.*,REJECT
 
 [MITM]
 hostname = %APPEND% sentry-uit.line-apps.com, legy.line-apps.com, voom-obs.line-scdn.net
