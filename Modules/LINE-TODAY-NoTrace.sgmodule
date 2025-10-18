@@ -1,5 +1,5 @@
 #!name=Kill LINE TODAY 
-#!desc=去除 LINE TODAY瀏覽時的登入狀態，阻擋噁心的新聞興趣追蹤 v20241226.01 - 需啟用 MitM over HTTP/2，需要重寫Header
+#!desc=去除 LINE TODAY瀏覽時的登入狀態，阻擋噁心的新聞興趣追蹤 v20251018.01 - 需啟用 MitM over HTTP/2，需要重寫Header
 #!system=ios
 
 [Rule]
@@ -7,6 +7,8 @@ URL-REGEX,^https://a\.line\.me/lgfp/lad/*.*,REJECT
 URL-REGEX,^https://today\.line\.me/api/user/*.*,REJECT
 #Block reader interaction and reply
 URL-REGEX,^https://today\.line.me/webapi/interaction/*.*,REJECT
+URL-REGEX,^hhttps://today.line.me/webapi/social-feed/*.*,REJECT
+
 #Block read history
 URL-REGEX,^https://today\.line\.me/webapi/logging/*.*,REJECT
 URL-REGEX,^https://sentry-uit\.line-apps\.com/*.*,REJECT

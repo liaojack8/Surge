@@ -1,5 +1,5 @@
 #!name=Kill LINE VOOM
-#!desc=封鎖 LINE VOOM 的功能，手機將不再加載智障影片 v20241207.01 - 需啟用 MitM over HTTP/2
+#!desc=封鎖 LINE VOOM 的功能，手機將不再加載智障影片 v20251018.01 - 需啟用 MitM over HTTP/2
 #!system=ios
 
 [Rule]
@@ -24,7 +24,7 @@ URL-REGEX,^https://legy.line-apps.com*.*/tl/api/v*.*/timeline/*.*,REJECT
 
 #Block anything about VOOM for yrself
 URL-REGEX,^https://legy.line-apps.com*.*/st/*.*?/api/v*.*/story/*.*,REJECT
-URL-REGEX,^https://legy.line-apps.com*.*/hm/*.*?/api/v*.*/home/*.*,REJECT
+# URL-REGEX,^https://legy.line-apps.com*.*/hm/*.*?/api/v*.*/home/*.*,REJECT
 URL-REGEX,^https://legy.line-apps.com*.*/mh/*.*?/api/v*.*/hashtag/*.*,REJECT
 URL-REGEX,^https://legy.line-apps.com*.*/eg/*.*?/api/v*.*/notification/*.*,REJECT
 URL-REGEX,^https://legy.line-apps.com*.*/eg/*.*?/api/v*.*/notification/*.*,REJECT
