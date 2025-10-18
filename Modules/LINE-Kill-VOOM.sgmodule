@@ -1,6 +1,8 @@
 #!name=Kill LINE VOOM
 #!desc=封鎖 LINE VOOM 的功能，手機將不再加載智障影片 v20251018.01 - 需啟用 MitM over HTTP/2
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Line.png
 #!system=ios
+#!category=LINE Tweaks
 
 [Rule]
 

@@ -1,6 +1,8 @@
 #!name=Kill LINE TODAY 
 #!desc=去除 LINE TODAY瀏覽時的登入狀態，阻擋噁心的新聞興趣追蹤 v20251018.02 - 需啟用 MitM over HTTP/2，需要重寫Header
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Line.png
 #!system=ios
+#!category=LINE Tweaks
 
 [Rule]
 URL-REGEX,^https://a\.line\.me/lgfp/lad/*.*,REJECT
