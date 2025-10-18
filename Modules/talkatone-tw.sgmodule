@@ -1,8 +1,9 @@
 #!name=Talkatone TW
-#!desc=Talkatone for Taiwanese v20241101
+#!desc=Talkatone for Taiwanese v20251018
 # Talkatone 在台灣使用中華電信固網出不去, 經測需要分流至行動網路才可正常連線, 並且內建Talkatone去廣告規則。
 
 [Rule]
+# Block Ad
 DOMAIN-SUFFIX,ads.inmobi.com,REJECT-DROP
 DOMAIN-SUFFIX,tappx.com,REJECT-DROP
 DOMAIN-SUFFIX,criteo.com,REJECT-DROP
@@ -14,9 +15,4 @@ DOMAIN-SUFFIX,adsappier.com,REJECT-DROP
 DOMAIN-SUFFIX,appier.net,REJECT-DROP
 DOMAIN-SUFFIX,appiersig.com,REJECT-DROP
 
-DOMAIN-SUFFIX,tktn.be,CELLULAR
-DOMAIN-SUFFIX,tktn.at,CELLULAR
-IP-CIDR,50.117.27.0/24,CELLULAR
-IP-CIDR,69.46.75.0/24,CELLULAR
-IP-CIDR,205.164.56.0/24,CELLULAR
-IP-CIDR,63.251.124.0/24,CELLULAR
+RULE-SET,https://raw.githubusercontent.com/liaojack8/Surge/refs/heads/master/rules/talkatone.list, CELLULAR
