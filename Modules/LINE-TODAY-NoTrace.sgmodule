@@ -1,19 +1,19 @@
 #!name=Kill LINE TODAY 
-#!desc=去除 LINE TODAY瀏覽時的登入狀態，阻擋噁心的新聞興趣追蹤 v20251018.02 - 需啟用 MitM over HTTP/2，需要重寫Header
-#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Line.png
+#!desc=去除 LINE TODAY瀏覽時的登入狀態，阻擋噁心的新聞興趣追蹤 v20251022.02 - 需啟用 MitM over HTTP/2，需啟用重寫Header
 #!system=ios
 #!category=LINE Tweaks
 
 [Rule]
-URL-REGEX,^https://a\.line\.me/lgfp/lad/*.*,REJECT
+# Block user page
 URL-REGEX,^https://today\.line\.me/api/user/*.*,REJECT
-#Block reader interaction and reply
+# Block reader interaction and reply
 URL-REGEX,^https://today\.line.me/webapi/interaction/*.*,REJECT
 URL-REGEX,^https://today.line.me/webapi/social-feed/*.*,REJECT
-# Line ad
+# Block Line ads
+URL-REGEX,^https://a\.line\.me/lgfp/lad/*.*,REJECT
 URL-REGEX,^https://static.line-scdn.net/lineads/*.*,REJECT
 
-#Block read history
+# Block logging read history 
 URL-REGEX,^https://today\.line\.me/webapi/logging/*.*,REJECT
 URL-REGEX,^https://sentry-uit\.line-apps\.com/*.*,REJECT
 

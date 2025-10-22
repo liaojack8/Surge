@@ -1,5 +1,5 @@
 #!name=Kill LINE VOOM
-#!desc=封鎖 LINE VOOM 的功能，手機將不再加載智障影片 v20251018.01 - 需啟用 MitM over HTTP/2
+#!desc=封鎖 LINE VOOM 的功能，手機將不再加載智障影片 v20251022.01 - 需啟用 MitM over HTTP/2
 #!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Line.png
 #!system=ios
 #!category=LINE Tweaks
@@ -8,30 +8,29 @@
 
 URL-REGEX,^https://voom-obs.line-scdn.net*,REJECT
 
-#Block videohub for streaming idiot vids
+# Block videohub for streaming idiot vids
 URL-REGEX,^https://legy.line-apps.com/ext/videohub/*.*,REJECT
 
-#tl = timeline, but I need to load timeline of official account
+# tl = timeline, but need to visit timeline of frens and official account
 #URL-REGEX,^https://legy.line-apps.com/tl/*.*,REJECT
 
-#Block recommendTab get feeds and data
+# Block recommendTab get feeds and data
 URL-REGEX,^https://legy.line-apps.com*.*/tl/discover/api/v*.*/recommendTab/feeds$,REJECT
 
-#Block search function
+# Block search function
 URL-REGEX,^https://legy.line-apps.com*.*/tl/discover/api/v*.*/collage/searchEntry$,REJECT
 
-#Block followingTab get feeds and data 
+# Block followingTab get feeds and data 
 URL-REGEX,^https://legy.line-apps.com*.*/tl/api/v*.*/feed$,REJECT
 URL-REGEX,^https://legy.line-apps.com*.*/tl/api/v*.*/timeline/*.*,REJECT
 
-#Block anything about VOOM for yrself
+# Block anything about VOOM for yrself e.g profile page
 URL-REGEX,^https://legy.line-apps.com*.*/st/*.*?/api/v*.*/story/*.*,REJECT
 # URL-REGEX,^https://legy.line-apps.com*.*/hm/*.*?/api/v*.*/home/*.*,REJECT
+# URL-REGEX,^https://legy.line-apps.com*.*/ma/*.*?/api/v*.*/home/*.*,REJECT
 URL-REGEX,^https://legy.line-apps.com*.*/mh/*.*?/api/v*.*/hashtag/*.*,REJECT
 URL-REGEX,^https://legy.line-apps.com*.*/eg/*.*?/api/v*.*/notification/*.*,REJECT
-URL-REGEX,^https://legy.line-apps.com*.*/eg/*.*?/api/v*.*/notification/*.*,REJECT
 URL-REGEX,^https://legy.line-apps.com*.*/eg/*.*?/api/v*.*/setting/*.*,REJECT
-URL-REGEX,^https://legy.line-apps.com*.*/ma/*.*?/api/v*.*/home/*.*,REJECT
 URL-REGEX,^https://legy.line-apps.com*.*/tl/*.*?/mapi/v*.*/contact/*.*,REJECT
 URL-REGEX,^https://legy.line-apps.com*.*/tl/*.*?/discover/api/v*.*,REJECT
 
