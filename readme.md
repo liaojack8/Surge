@@ -1,39 +1,40 @@
 # Jack's Surge Rules
 
-LINE 去廣告 \
-[安裝腳本](surge:///install-module?url=https://raw.githubusercontent.com/jkgtw/Surge/master/Modules/LINE-ADs.sgmodule) | [腳本內容](https://raw.githubusercontent.com/jkgtw/Surge/master/Modules/LINE-ADs.sgmodule)
+[LINE 去廣告](https://github.com/liaojack8/Surge/blob/master/Modules/LINE-ADs.sgmodule?raw=true)
+```
+https://github.com/liaojack8/Surge/blob/master/Modules/LINE-ADs.sgmodule?raw=true
+```
 
-把LINE VOOM 擋起來 \
-[安裝腳本](surge:///install-module?url=https://raw.githubusercontent.com/liaojack8/Surge/master/Modules/LINE-Kill-VOOM.sgmodule) | [腳本內容](https://raw.githubusercontent.com/liaojack8/Surge/master/Modules/LINE-Kill-VOOM.sgmodule)
+[把LINE VOOM 擋起來](https://github.com/liaojack8/Surge/blob/master/Modules/LINE-Kill-VOOM.sgmodule?raw=true)
+```
+https://github.com/liaojack8/Surge/blob/master/Modules/LINE-Kill-VOOM.sgmodule?raw=true
+```
 
-去除LINE TODAY的興趣追蹤與留言 \
-[安裝腳本](surge:///install-module?url=https://raw.githubusercontent.com/liaojack8/Surge/master/Modules/LINE-TODAY-NoTrace.sgmodule) | [腳本內容](https://raw.githubusercontent.com/liaojack8/Surge/master/Modules/LINE-TODAY-NoTrace.sgmodule)
+[去除LINE TODAY的興趣追蹤與留言](https://github.com/liaojack8/Surge/blob/master/Modules/LINE-TODAY-NoTrace.sgmodule?raw=true)
+```
+https://github.com/liaojack8/Surge/blob/master/Modules/LINE-TODAY-NoTrace.sgmodule?raw=true
+```
 
-巴哈姆特簽到腳本（安裝前請先閱讀模組內容）\
-[安裝腳本](surge:///install-module?url=https://github.com/jimmyorz/Surge/raw/master/BahamutDailyBonus.sgmodule) | [腳本內容](https://github.com/jimmyorz/Surge/raw/master/BahamutDailyBonus.sgmodule )
+[巴哈姆特簽到腳本](https://github.com/jimmyorz/Surge/raw/master/BahamutDailyBonus.sgmodule)（安裝前請先閱讀模組內容）
+```
+https://github.com/jimmyorz/Surge/raw/master/BahamutDailyBonus.sgmodule
+```
 - 或參考 https://www.jkg.tw/p3603/ 手動設定
 
-Youtube 擋廣告 需訂閱Surge新功能, Map Local \
-[安裝腳本](surge:///install-module?url=https://raw.githubusercontent.com/Maasea/sgmodule/master/YouTube.Enhance.sgmodule) | [腳本內容](https://raw.githubusercontent.com/Maasea/sgmodule/master/YouTube.Enhance.sgmodule)
+[ADList](https://raw.githubusercontent.com/jkgtw/Surge/master/Modules/ADList.sgmodule)
+```
+https://raw.githubusercontent.com/jkgtw/Surge/master/Modules/ADList.sgmodule
+```
 
-ADList \
-[安裝腳本](surge:///install-module?url=https://raw.githubusercontent.com/jkgtw/Surge/master/Modules/ADList.sgmodule) | [腳本內容](https://raw.githubusercontent.com/jkgtw/Surge/master/Modules/ADList.sgmodule)
+[PTT 跳過年齡驗證](surge:///install-module?url=https://kinta.ma/surge/modules/ptt.sgmodule)
+```
+https://kinta.ma/surge/modules/ptt.sgmodule
+```
+
+[PTT Imgur 修正](https://kinta.ma/surge/modules/ptt_imgur_fix.sgmodule)
+```
+https://kinta.ma/surge/modules/ptt_imgur_fix.sgmodule
+```
 
 FutaFilter \
 https://filter.futa.gg/Surge/filters.txt
-
-PTT 跳過年齡驗證 \
-[安裝腳本](surge:///install-module?url=https://kinta.ma/surge/modules/ptt.sgmodule) | [腳本內容](https://kinta.ma/surge/modules/ptt.sgmodule)
-
-PTT Imgur 修正 \
-[安裝腳本](surge:///install-module?url=https://kinta.ma/surge/modules/ptt_imgur_fix.sgmodule) | [腳本內容](https://kinta.ma/surge/modules/ptt_imgur_fix.sgmodule)
-
-皮樂姐姐推薦 \
-https://kinta.ma/surge/
-
-## 教學
-蘋果生態圈的網路神器 Surge 4 for iOS 簡易入門教學 \
-https://www.jkg.tw/p3330/
-
-FutaFilter DNS 公共服務之 iOS 設定方法 \
-https://www.jkg.tw/p3351/
