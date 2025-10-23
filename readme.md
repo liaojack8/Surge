@@ -15,6 +15,11 @@ https://github.com/liaojack8/Surge/blob/master/Modules/LINE-Kill-VOOM.sgmodule?r
 https://github.com/liaojack8/Surge/blob/master/Modules/LINE-TODAY-NoTrace.sgmodule?raw=true
 ```
 
+[ADList-217heidai](https://github.com/liaojack8/Surge/blob/master/Modules/ADList-217heidai.sgmodule?raw=true)
+```
+https://github.com/liaojack8/Surge/blob/master/Modules/ADList-217heidai.sgmodule?raw=true
+```
+
 [巴哈姆特簽到腳本](https://github.com/jimmyorz/Surge/raw/master/BahamutDailyBonus.sgmodule)（安裝前請先閱讀模組內容）
 ```
 https://github.com/jimmyorz/Surge/raw/master/BahamutDailyBonus.sgmodule
@@ -35,6 +40,3 @@ https://kinta.ma/surge/modules/ptt.sgmodule
 ```
 https://kinta.ma/surge/modules/ptt_imgur_fix.sgmodule
 ```
-
-FutaFilter \
-https://filter.futa.gg/Surge/filters.txt

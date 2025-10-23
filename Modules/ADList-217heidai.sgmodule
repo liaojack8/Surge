@@ -1,0 +1,4 @@
+#!name=ADList-217heidai
+#!desc=使用217heidai/adblockfilters的擋廣告規則
+[Rule]
+DOMAIN-SET,https://github.com/217heidai/adblockfilters/blob/main/rules/adblockloon.list?raw=true,REJECT
