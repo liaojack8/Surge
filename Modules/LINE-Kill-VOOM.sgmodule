@@ -1,5 +1,5 @@
-#!name=Kill LINE VOOM
-#!desc=封鎖 LINE VOOM 的功能，手機將不再加載智障影片 v20261001.01 - 需啟用 MitM over HTTP/2
+#!name=Kill LINE VOOM & 逛逛
+#!desc=封鎖 LINE VOOM 與取而代之的「逛逛 (Discover)」，手機將不再加載智障影片 v20261001.03 - 需啟用 MitM over HTTP/2
 #!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Line.png
 #!system=ios
 #!category=LINE Tweaks
@@ -33,6 +33,17 @@ URL-REGEX,^https:\/\/legy\.line-apps\.com(:443)?\/eg\/(?:[^\/?]+\/)*api\/v\d+\/n
 URL-REGEX,^https:\/\/legy\.line-apps\.com(:443)?\/eg\/(?:[^\/?]+\/)*api\/v\d+\/setting(\/|\?|$),REJECT
 URL-REGEX,^https:\/\/legy\.line-apps\.com(:443)?\/tl\/(?:[^\/?]+\/)*mapi\/v\d+\/contact(\/|\?|$),REJECT
 URL-REGEX,^https:\/\/legy\.line-apps\.com(:443)?\/tl\/(?:[^\/?]+\/)*discover\/api\/v\d+\/,REJECT
+
+# 逛逛 (Discover): 取代 VOOM 的推薦內容分頁, 實為電商分頁 (ectab / commerce-tab)
+# 分頁後端 (含 geb/reward-trigger 逛逛賺點數回報) 全部擋掉
+URL-REGEX,^https:\/\/legy\.line-apps\.com(:443)?\/EXT\/ectab\/,REJECT
+# 內容模組由 GCS 提供 (首頁 GEB banner 用的 GetModulesByModuleIds 由 LINE-ADs 處理)
+URL-REGEX,^https:\/\/legy\.line-apps\.com(:443)?\/line\.gcs\.GcsModuleService\/GetModulesByCursor$,REJECT
+URL-REGEX,^https:\/\/legy\.line-apps\.com(:443)?\/line\.gcs\.GcsModuleService\/GetModulesByPageId$,REJECT
+# LINE 購物 / LINE 旅遊 圖片 (整個 host 擋掉, 不需 MITM; 逛逛、錢包的商品推廣都會用到)
+DOMAIN,buy-obs.line-scdn.net,REJECT
+DOMAIN,shopping.line-scdn.net,REJECT
+DOMAIN,travel-tw.line-scdn.net,REJECT
 
 #Fuck Sentry
 URL-REGEX,^https:\/\/sentry-uit\.line-apps\.com\/,REJECT

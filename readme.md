@@ -5,7 +5,7 @@
 https://github.com/liaojack8/Surge/blob/master/Modules/LINE-ADs.sgmodule?raw=true
 ```
 
-[把LINE VOOM 擋起來](https://github.com/liaojack8/Surge/blob/master/Modules/LINE-Kill-VOOM.sgmodule?raw=true)
+[把LINE VOOM / 逛逛 擋起來](https://github.com/liaojack8/Surge/blob/master/Modules/LINE-Kill-VOOM.sgmodule?raw=true)
 ```
 https://github.com/liaojack8/Surge/blob/master/Modules/LINE-Kill-VOOM.sgmodule?raw=true
 ```
