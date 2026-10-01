@@ -1,5 +1,5 @@
 #!name=Remove LINE ADs + Privacy
-#!desc=LINE 去廣告 + 遙測/追蹤/分析阻擋 v20261001.04（需啟用 MitM over HTTP/2、腳本）
+#!desc=LINE 去廣告 + 遙測/追蹤/分析阻擋 v20261001.05（需啟用 MitM over HTTP/2、腳本）
 #!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Line.png
 #!system=ios
 #!category=LINE Tweaks
@@ -98,8 +98,8 @@ URL-REGEX,^https:\/\/cix\.line-apps\.com(?::443)?\/R\d+(?:\?|$),REJECT
 
 [Script]
 line-uts-stub = type=http-request, pattern=^https:\/\/static\.line-scdn\.net(?::443)?\/uts\/.+\.js, script-path=https://raw.githubusercontent.com/liaojack8/Surge/refs/heads/master/Modules/utils/line-uts-stub.js
-# 官方帳號頁面: 移除既有的 _uts_* 追蹤 cookie (舊 cookie 效期一年, 空殼 SDK 不會再寫入新的)
-line-strip-uts-cookie = type=http-request, pattern=^https:\/\/page\.line\.me(?::443)?\/, script-path=https://raw.githubusercontent.com/liaojack8/Surge/refs/heads/master/Modules/utils/line-strip-uts-cookie.js
+# 官方帳號頁面: 移除 LINE 自家的追蹤 cookie (_uts_*, _ldbrbid, _trmccid, ldsuid, A, XA)
+line-strip-tracking-cookie = type=http-request, pattern=^https:\/\/page\.line\.me(?::443)?\/, script-path=https://raw.githubusercontent.com/liaojack8/Surge/refs/heads/master/Modules/utils/line-strip-tracking-cookie.js
 
 [MITM]
 hostname = %APPEND% a.line.me, gw.line.naver.jp, legy.line-apps.com, w.line.me, sch.line.me, crs-event.line.me, static.line-scdn.net, web-mmap-pay.line-apps.com, scdn.line-apps.com, cix.line-apps.com, obs.line-scdn.net, d.line-scdn.net, buy.line.me, lan.line.me, page.line.me
