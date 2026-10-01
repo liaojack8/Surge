@@ -1,41 +1,41 @@
 #!name=Kill LINE VOOM
-#!desc=封鎖 LINE VOOM 的功能，手機將不再加載智障影片 v20251022.01 - 需啟用 MitM over HTTP/2
+#!desc=封鎖 LINE VOOM 的功能，手機將不再加載智障影片 v20261001.01 - 需啟用 MitM over HTTP/2
 #!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Line.png
 #!system=ios
 #!category=LINE Tweaks
 
 [Rule]
 
-URL-REGEX,^https://voom-obs.line-scdn.net*,REJECT
+URL-REGEX,^https:\/\/voom-obs\.line-scdn\.net\/,REJECT
 
 # Block videohub for streaming idiot vids
-URL-REGEX,^https://legy.line-apps.com/ext/videohub/*.*,REJECT
+URL-REGEX,^https:\/\/legy\.line-apps\.com(:443)?\/ext\/videohub\/,REJECT
 
 # tl = timeline, but need to visit timeline of frens and official account
-#URL-REGEX,^https://legy.line-apps.com/tl/*.*,REJECT
+#URL-REGEX,^https:\/\/legy\.line-apps\.com(:443)?\/tl\/,REJECT
 
 # Block recommendTab get feeds and data
-URL-REGEX,^https://legy.line-apps.com*.*/tl/discover/api/v*.*/recommendTab/feeds$,REJECT
+URL-REGEX,^https:\/\/legy\.line-apps\.com(:443)?\/tl\/discover\/api\/v\d+\/recommendTab\/feeds$,REJECT
 
 # Block search function
-URL-REGEX,^https://legy.line-apps.com*.*/tl/discover/api/v*.*/collage/searchEntry$,REJECT
+URL-REGEX,^https:\/\/legy\.line-apps\.com(:443)?\/tl\/discover\/api\/v\d+\/collage\/searchEntry$,REJECT
 
 # Block followingTab get feeds and data 
-URL-REGEX,^https://legy.line-apps.com*.*/tl/api/v*.*/feed$,REJECT
-URL-REGEX,^https://legy.line-apps.com*.*/tl/api/v*.*/timeline/*.*,REJECT
+URL-REGEX,^https:\/\/legy\.line-apps\.com(:443)?\/tl\/api\/v\d+\/feed$,REJECT
+URL-REGEX,^https:\/\/legy\.line-apps\.com(:443)?\/tl\/api\/v\d+\/timeline(\/|\?|$),REJECT
 
 # Block anything about VOOM for yrself e.g profile page
-URL-REGEX,^https://legy.line-apps.com*.*/st/*.*?/api/v*.*/story/*.*,REJECT
-# URL-REGEX,^https://legy.line-apps.com*.*/hm/*.*?/api/v*.*/home/*.*,REJECT
-# URL-REGEX,^https://legy.line-apps.com*.*/ma/*.*?/api/v*.*/home/*.*,REJECT
-URL-REGEX,^https://legy.line-apps.com*.*/mh/*.*?/api/v*.*/hashtag/*.*,REJECT
-URL-REGEX,^https://legy.line-apps.com*.*/eg/*.*?/api/v*.*/notification/*.*,REJECT
-URL-REGEX,^https://legy.line-apps.com*.*/eg/*.*?/api/v*.*/setting/*.*,REJECT
-URL-REGEX,^https://legy.line-apps.com*.*/tl/*.*?/mapi/v*.*/contact/*.*,REJECT
-URL-REGEX,^https://legy.line-apps.com*.*/tl/*.*?/discover/api/v*.*,REJECT
+URL-REGEX,^https:\/\/legy\.line-apps\.com(:443)?\/st\/(?:[^\/?]+\/)*api\/v\d+\/story(\/|\?|$),REJECT
+# URL-REGEX,^https:\/\/legy\.line-apps\.com(:443)?\/hm\/(?:[^\/?]+\/)*api\/v\d+\/home(\/|\?|$),REJECT
+# URL-REGEX,^https:\/\/legy\.line-apps\.com(:443)?\/ma\/(?:[^\/?]+\/)*api\/v\d+\/home(\/|\?|$),REJECT
+URL-REGEX,^https:\/\/legy\.line-apps\.com(:443)?\/mh\/(?:[^\/?]+\/)*api\/v\d+\/hashtag(\/|\?|$),REJECT
+URL-REGEX,^https:\/\/legy\.line-apps\.com(:443)?\/eg\/(?:[^\/?]+\/)*api\/v\d+\/notification(\/|\?|$),REJECT
+URL-REGEX,^https:\/\/legy\.line-apps\.com(:443)?\/eg\/(?:[^\/?]+\/)*api\/v\d+\/setting(\/|\?|$),REJECT
+URL-REGEX,^https:\/\/legy\.line-apps\.com(:443)?\/tl\/(?:[^\/?]+\/)*mapi\/v\d+\/contact(\/|\?|$),REJECT
+URL-REGEX,^https:\/\/legy\.line-apps\.com(:443)?\/tl\/(?:[^\/?]+\/)*discover\/api\/v\d+\/,REJECT
 
 #Fuck Sentry
-URL-REGEX,^https://sentry-uit.line-apps.com/*.*,REJECT
+URL-REGEX,^https:\/\/sentry-uit\.line-apps\.com\/,REJECT
 
 [MITM]
 hostname = %APPEND% sentry-uit.line-apps.com, legy.line-apps.com, voom-obs.line-scdn.net

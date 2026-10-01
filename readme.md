@@ -15,6 +15,15 @@ https://github.com/liaojack8/Surge/blob/master/Modules/LINE-Kill-VOOM.sgmodule?r
 https://github.com/liaojack8/Surge/blob/master/Modules/LINE-TODAY-NoTrace.sgmodule?raw=true
 ```
 
+[Talkatone 台灣分流 + 去廣告](https://github.com/liaojack8/Surge/blob/master/Modules/talkatone-tw.sgmodule?raw=true)
+```
+https://github.com/liaojack8/Surge/blob/master/Modules/talkatone-tw.sgmodule?raw=true
+```
+- 中華電信固網連不上 Talkatone, 本模組將 Talkatone 流量以 `CELLULAR-ONLY` 強制走行動網路, Wi-Fi 下也能登入與通話
+- 使用時需開啟行動數據, 並允許 Surge 使用行動網路
+- Talkatone 相關網域改用公共 DNS (8.8.8.8) 解析, 避免 Wi-Fi 下經行動網路查詢路由器 DNS 而 timeout
+- 更新模組後請一併至「外部資源」更新 `talkatone.list` 規則集
+
 [ADList-217heidai](https://github.com/liaojack8/Surge/blob/master/Modules/ADList-217heidai.sgmodule?raw=true)
 ```
 https://github.com/liaojack8/Surge/blob/master/Modules/ADList-217heidai.sgmodule?raw=true
