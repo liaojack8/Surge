@@ -1,5 +1,5 @@
 #!name=Remove LINE ADs + Privacy
-#!desc=LINE 去廣告 + 遙測/追蹤/分析阻擋 v20261001.02（需啟用 MitM over HTTP/2）
+#!desc=LINE 去廣告 + 遙測/追蹤/分析阻擋 v20261001.04（需啟用 MitM over HTTP/2、腳本）
 #!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Line.png
 #!system=ios
 #!category=LINE Tweaks
@@ -83,8 +83,8 @@ URL-REGEX,^https:\/\/crs-event\.line\.me(?::443)?\/v\d+\/imp(?:\?|$),REJECT
 DOMAIN,uts-front.line-apps.com,REJECT
 
 # Also prevent LIFF/WebView pages from loading the UTS analytics SDK itself.
-# 暫時停用: 擋掉 SDK 會讓官方帳號頁面出現 "Application error: a client-side exception has occurred"
-# 追蹤資料仍由上方 uts-front.line-apps.com 阻擋
+# 直接擋掉 SDK 會讓官方帳號頁面出現 "Application error: a client-side exception has occurred"
+# 改由 [Script] line-uts-stub 回傳空殼 uts.js, 頁面正常且不寫入 _uts_* cookie
 # URL-REGEX,^https:\/\/static\.line-scdn\.net(?::443)?\/uts\/,REJECT
 
 # NELO2 diagnostics / log collector
@@ -96,5 +96,10 @@ DOMAIN,nelo2-col.linecorp.com,REJECT
 URL-REGEX,^https:\/\/cix\.line-apps\.com(?::443)?\/R\d+(?:\?|$),REJECT
 
 
+[Script]
+line-uts-stub = type=http-request, pattern=^https:\/\/static\.line-scdn\.net(?::443)?\/uts\/.+\.js, script-path=https://raw.githubusercontent.com/liaojack8/Surge/refs/heads/master/Modules/utils/line-uts-stub.js
+# 官方帳號頁面: 移除既有的 _uts_* 追蹤 cookie (舊 cookie 效期一年, 空殼 SDK 不會再寫入新的)
+line-strip-uts-cookie = type=http-request, pattern=^https:\/\/page\.line\.me(?::443)?\/, script-path=https://raw.githubusercontent.com/liaojack8/Surge/refs/heads/master/Modules/utils/line-strip-uts-cookie.js
+
 [MITM]
-hostname = %APPEND% a.line.me, gw.line.naver.jp, legy.line-apps.com, w.line.me, sch.line.me, crs-event.line.me, static.line-scdn.net, web-mmap-pay.line-apps.com, scdn.line-apps.com, cix.line-apps.com, obs.line-scdn.net, d.line-scdn.net, buy.line.me, lan.line.me
+hostname = %APPEND% a.line.me, gw.line.naver.jp, legy.line-apps.com, w.line.me, sch.line.me, crs-event.line.me, static.line-scdn.net, web-mmap-pay.line-apps.com, scdn.line-apps.com, cix.line-apps.com, obs.line-scdn.net, d.line-scdn.net, buy.line.me, lan.line.me, page.line.me
