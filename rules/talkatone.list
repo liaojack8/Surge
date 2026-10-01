@@ -3,11 +3,17 @@
 # Refer: https://raw.githubusercontent.com/mottzz87/crules/main/rule/talkatone.list
 # Refer: https://github.com/geekhuashan/Proxy-Rules/blob/main/Talkatone.list
 # Refer: https://github.com/PhantomSeaStars/Rules (V5-talkatone)
+# Refer: https://github.com/czy13724/Surge/blob/main/Rules/Talkatone.list (2026.09.16)
 
 # 登入 / API / 語音留言
+DOMAIN-KEYWORD,talkatone
+DOMAIN-SUFFIX,talkamobile.com
 DOMAIN-SUFFIX,tktn.at
 DOMAIN-SUFFIX,tktn.be
-DOMAIN-SUFFIX,talkatone.com
+DOMAIN-SUFFIX,tktn.me
+
+# 登入時的人機驗證 (Security Check)
+DOMAIN-SUFFIX,hcaptcha.com
 
 # 登入時會檢查的 SDK / IP 地區查詢, 需與登入走同一出口
 DOMAIN-SUFFIX,ip-api.com
@@ -21,9 +27,21 @@ DOMAIN-SUFFIX,crashlytics.com
 DOMAIN-SUFFIX,app-analytics-services.com
 DOMAIN-SUFFIX,tenor.com
 
-# 通話伺服器
-IP-CIDR,50.117.27.0/24,no-resolve
-IP-CIDR,69.46.75.0/24,no-resolve
-IP-CIDR,205.164.56.0/24,no-resolve
-IP-CIDR,63.251.124.0/24,no-resolve
+# XMPP 信令
+IP-CIDR,23.19.73.0/24,no-resolve
+IP-CIDR,72.18.158.0/24,no-resolve
+IP-CIDR,23.235.228.0/24,no-resolve
 IP-CIDR,216.172.154.0/24,no-resolve
+
+# 通話 / 簡訊
+IP-CIDR,50.117.27.0/24,no-resolve
+IP-CIDR,63.251.124.0/24,no-resolve
+IP-CIDR,69.46.75.0/24,no-resolve
+IP-CIDR,104.244.53.0/24,no-resolve
+IP-CIDR,131.153.5.0/24,no-resolve
+IP-CIDR,131.153.7.0/24,no-resolve
+IP-CIDR,198.24.160.0/24,no-resolve
+IP-CIDR,198.24.161.0/24,no-resolve
+IP-CIDR,198.24.163.0/24,no-resolve
+IP-CIDR,198.24.183.0/24,no-resolve
+IP-CIDR,205.164.56.0/24,no-resolve

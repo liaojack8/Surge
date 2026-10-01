@@ -1,5 +1,5 @@
 #!name=Talkatone TW
-#!desc=Talkatone for Taiwanese v20261001.2
+#!desc=Talkatone for Taiwanese v20261001.3
 # Talkatone 在台灣使用中華電信固網出不去, 經測需要分流至行動網路才可正常連線, 並且內建Talkatone去廣告規則。
 # 登入時除了 tktn.at / tktn.be, 還會連 ip-api.com 及 inmobi / inner-active / mobilefuse / kochava 等 SDK,
 # 這些必須和登入走同一個出口 (行動網路) 且不可封鎖, 否則 Wi-Fi 下會無法登入。
@@ -28,4 +28,4 @@ DOMAIN-SUFFIX,appier.net,REJECT-DROP
 DOMAIN-SUFFIX,appiersig.com,REJECT-DROP
 
 # Talkatone 全部分流至行動網路
-RULE-SET,https://raw.githubusercontent.com/liaojack8/Surge/refs/heads/master/rules/talkatone.list,CELLULAR
+RULE-SET,https://raw.githubusercontent.com/liaojack8/Surge/refs/heads/master/rules/talkatone.list,CELLULAR-ONLY
