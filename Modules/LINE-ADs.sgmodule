@@ -1,5 +1,5 @@
 #!name=Remove LINE ADs + Privacy
-#!desc=LINE 去廣告 + 遙測/追蹤/分析阻擋 v20261001.05（需啟用 MitM over HTTP/2、腳本）
+#!desc=LINE 去廣告 + 遙測/追蹤/分析阻擋 v20261001.06（需啟用 MitM over HTTP/2、腳本）
 #!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Line.png
 #!system=ios
 #!category=LINE Tweaks
@@ -42,6 +42,12 @@ URL-REGEX,^https:\/\/legy\.line-apps\.com\/line\.gcs\.GcsModuleService\/GetModul
 
 # LINE Web / LIFF Ads SDK
 URL-REGEX,^https:\/\/static\.line-scdn\.net(?::443)?\/ad-sdk\/,REJECT
+
+# Wallet 分頁推廣圖
+# lcp-prod-obs: 推廣素材專用 host, 整個擋掉不需 MITM
+DOMAIN,lcp-prod-obs.line-scdn.net,REJECT
+# vos 為多服務共用的靜態檔 host, 只擋 landpress (LY 活動頁 CMS) 的推廣素材
+URL-REGEX,^https:\/\/vos\.line-scdn\.net(?::443)?\/landpress-content,REJECT
 
 # LINE Pay / LIFF campaign banner
 URL-REGEX,^https:\/\/web-mmap-pay\.line-apps\.com(?::443)?\/tw\/liff\/campaign\/v\d+\/aggregate\/ad\/banner\/,REJECT
@@ -102,4 +108,4 @@ line-uts-stub = type=http-request, pattern=^https:\/\/static\.line-scdn\.net(?::
 line-strip-tracking-cookie = type=http-request, pattern=^https:\/\/page\.line\.me(?::443)?\/, script-path=https://raw.githubusercontent.com/liaojack8/Surge/refs/heads/master/Modules/utils/line-strip-tracking-cookie.js
 
 [MITM]
-hostname = %APPEND% a.line.me, gw.line.naver.jp, legy.line-apps.com, w.line.me, sch.line.me, crs-event.line.me, static.line-scdn.net, web-mmap-pay.line-apps.com, scdn.line-apps.com, cix.line-apps.com, obs.line-scdn.net, d.line-scdn.net, buy.line.me, lan.line.me, page.line.me
+hostname = %APPEND% a.line.me, gw.line.naver.jp, legy.line-apps.com, w.line.me, sch.line.me, crs-event.line.me, static.line-scdn.net, web-mmap-pay.line-apps.com, scdn.line-apps.com, cix.line-apps.com, obs.line-scdn.net, d.line-scdn.net, buy.line.me, lan.line.me, page.line.me, vos.line-scdn.net
