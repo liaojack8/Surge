@@ -1,10 +1,27 @@
 
 # Talkatone
 # Refer: https://raw.githubusercontent.com/mottzz87/crules/main/rule/talkatone.list
+# Refer: https://github.com/geekhuashan/Proxy-Rules/blob/main/Talkatone.list
+# Refer: https://github.com/PhantomSeaStars/Rules (V5-talkatone)
 
+# 登入 / API / 語音留言
 DOMAIN-SUFFIX,tktn.at
 DOMAIN-SUFFIX,tktn.be
 DOMAIN-SUFFIX,talkatone.com
+
+# 登入時會檢查的 SDK / IP 地區查詢, 需與登入走同一出口
+DOMAIN-SUFFIX,ip-api.com
+DOMAIN-SUFFIX,inmobi.com
+DOMAIN-SUFFIX,inner-active.mobi
+DOMAIN-SUFFIX,mobilefuse.com
+DOMAIN-SUFFIX,kochava.com
+DOMAIN-SUFFIX,agkn.com
+DOMAIN-SUFFIX,cohere.com
+DOMAIN-SUFFIX,crashlytics.com
+DOMAIN-SUFFIX,app-analytics-services.com
+DOMAIN-SUFFIX,tenor.com
+
+# 通話伺服器
 IP-CIDR,50.117.27.0/24,no-resolve
 IP-CIDR,69.46.75.0/24,no-resolve
 IP-CIDR,205.164.56.0/24,no-resolve

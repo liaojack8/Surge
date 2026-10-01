@@ -1,20 +1,14 @@
 #!name=Talkatone TW
-#!desc=Talkatone for Taiwanese v20261001
+#!desc=Talkatone for Taiwanese v20261001.2
 # Talkatone 在台灣使用中華電信固網出不去, 經測需要分流至行動網路才可正常連線, 並且內建Talkatone去廣告規則。
-# 登入/註冊走 tktn.at / tktn.be, 一併分流至行動網路, 修正 Wi-Fi 下無法登入的問題。
-# 去廣告規則參考: https://gist.github.com/354770288/cec09308dc77df9ad8f4723cf5126710
+# 登入時除了 tktn.at / tktn.be, 還會連 ip-api.com 及 inmobi / inner-active / mobilefuse / kochava 等 SDK,
+# 這些必須和登入走同一個出口 (行動網路) 且不可封鎖, 否則 Wi-Fi 下會無法登入。
 
 [Rule]
-# Block Ad
-DOMAIN-SUFFIX,amazon-adsystem.com,REJECT-DROP
+# Block Ad (不可封鎖 talkatone.list 中登入會用到的 SDK 網域)
 DOMAIN-SUFFIX,ads.inmobi.com,REJECT-DROP
-DOMAIN-SUFFIX,config.inmobi.com,REJECT-DROP
-DOMAIN-SUFFIX,w.inmobi.com,REJECT-DROP
-DOMAIN-SUFFIX,de.inmobi.com,REJECT-DROP
-DOMAIN-SUFFIX,ihasdsp.inmobi.com,REJECT-DROP
 DOMAIN-SUFFIX,inmobicdn.net,REJECT-DROP
-DOMAIN-SUFFIX,inner-active.mobi,REJECT-DROP
-DOMAIN-SUFFIX,mobilefuse.com,REJECT-DROP
+DOMAIN-SUFFIX,amazon-adsystem.com,REJECT-DROP
 DOMAIN-SUFFIX,liftoff-creatives.io,REJECT-DROP
 DOMAIN-SUFFIX,impression-asia.liftoff.io,REJECT-DROP
 DOMAIN-SUFFIX,adsmoloco.com,REJECT-DROP
@@ -26,7 +20,6 @@ DOMAIN-SUFFIX,taboola.com,REJECT-DROP
 DOMAIN-SUFFIX,impression.link,REJECT-DROP
 DOMAIN-SUFFIX,skadnetworks.fyber.com,REJECT-DROP
 DOMAIN-SUFFIX,view.adjust.com,REJECT-DROP
-DOMAIN-SUFFIX,app-analytics-services.com,REJECT-DROP
 DOMAIN-SUFFIX,googleads.g.doubleclick.net,REJECT-DROP
 DOMAIN-SUFFIX,googlesyndication.com,REJECT-DROP
 DOMAIN-SUFFIX,fundingchoicesmessages.google.com,REJECT-DROP
@@ -34,8 +27,5 @@ DOMAIN-SUFFIX,adsappier.com,REJECT-DROP
 DOMAIN-SUFFIX,appier.net,REJECT-DROP
 DOMAIN-SUFFIX,appiersig.com,REJECT-DROP
 
-# Talkatone 登入 / API / 語音留言 / 通話
-DOMAIN-SUFFIX,tktn.at,CELLULAR
-DOMAIN-SUFFIX,tktn.be,CELLULAR
-DOMAIN-SUFFIX,talkatone.com,CELLULAR
+# Talkatone 全部分流至行動網路
 RULE-SET,https://raw.githubusercontent.com/liaojack8/Surge/refs/heads/master/rules/talkatone.list,CELLULAR
