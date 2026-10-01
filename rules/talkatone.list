@@ -1,7 +1,12 @@
+
 # Talkatone
 # Refer: https://raw.githubusercontent.com/mottzz87/crules/main/rule/talkatone.list
 
-IP-CIDR,50.117.27.0/24
-IP-CIDR,69.46.75.0/24
-IP-CIDR,205.164.56.0/24
-IP-CIDR,63.251.124.0/24
+DOMAIN-SUFFIX,tktn.at
+DOMAIN-SUFFIX,tktn.be
+DOMAIN-SUFFIX,talkatone.com
+IP-CIDR,50.117.27.0/24,no-resolve
+IP-CIDR,69.46.75.0/24,no-resolve
+IP-CIDR,205.164.56.0/24,no-resolve
+IP-CIDR,63.251.124.0/24,no-resolve
+IP-CIDR,216.172.154.0/24,no-resolve
