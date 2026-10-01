@@ -1,43 +1,100 @@
-#!name=Remove LINE ADs
-#!desc=刪掉 LINE 惱人的廣告 v20250805.03 - 需啟用 MitM over HTTP/2
+#!name=Remove LINE ADs + Privacy
+#!desc=LINE 去廣告 + 遙測/追蹤/分析阻擋 v20261001.02（需啟用 MitM over HTTP/2）
 #!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Line.png
 #!system=ios
 #!category=LINE Tweaks
+# Based on jkgtw: https://raw.githubusercontent.com/jkgtw/Surge/master/Modules/LINE-ADs.sgmodule (v20260929.01)
 
 [Rule]
-URL-REGEX,^https:\/\/a\.line\.me\/er\/lads\/v\d\/ei\?,REJECT-TINYGIF
-URL-REGEX,^https:\/\/a\.line\.me\/er\/l.*\/v\d\/event\/image,REJECT-TINYGIF
-URL-REGEX,^https:\/\/a\.line\.me\/lass\/api\/v\d\/ads$,REJECT-DROP
-URL-REGEX,^https:\/\/a\.line\.me\/oa\/v\d\/e$,REJECT-DROP
-URL-REGEX,^https:\/\/a\.line\.me\/cs\/v\d\/oa$,REJECT-DROP
-URL-REGEX,^https:\/\/ad\.line-scdn\.net\/0h,REJECT
-URL-REGEX,"https:\/\/ec-bot-obs\.line-scdn\.net\/0h[0-9a-zA-Z_-]{50,}",REJECT-TINYGIF
-URL-REGEX,^https:\/\/gw\.line\.naver\.jp\/ext\/lgfp\/lad\/v1$,REJECT
-URL-REGEX,^https:\/\/gw\.line\.naver\.jp\/lass\/api\/v1\/ads$,REJECT
-URL-REGEX,^https:\/\/gw\.line\.naver\.jp\/tr\/event$,REJECT
-URL-REGEX,^https:\/\/lan\.line\.me\/v1\/line\/ios,REJECT
-URL-REGEX,^https:\/\/legy\.line-apps\.com:443\/ext\/lgfp\/lad\/v1$,REJECT
-URL-REGEX,^https:\/\/legy\.line-apps\.com:443\/ext\/smartch\/banner\/sch\/v1$,REJECT
+# ============================================================
+# 1. LINE Ads / Smart Channel
+# ============================================================
+
+# LINE Ads impression / event pixels
+URL-REGEX,^https:\/\/a\.line\.me(?::443)?\/er\/lads\/v\d+\/ei(?:\?|$),REJECT-TINYGIF
+URL-REGEX,^https:\/\/a\.line\.me(?::443)?\/er\/(?:lass|ladg|lads)\/v\d+\/event\/image(?:\?|$),REJECT-TINYGIF
+
+# LINE Ads APIs
+URL-REGEX,^https:\/\/a\.line\.me(?::443)?\/lass\/api\/v\d+\/ads(?:\?|$),REJECT
+URL-REGEX,^https:\/\/a\.line\.me(?::443)?\/oa\/v\d+\/e(?:\?|$),REJECT
+URL-REGEX,^https:\/\/a\.line\.me(?::443)?\/cs\/v\d+\/oa(?:\?|$),REJECT
+
+# Legacy / compatibility ads gateways
+URL-REGEX,^https:\/\/gw\.line\.naver\.jp(?::443)?\/ext\/lgfp\/lad\/v\d+(?:\?|$),REJECT
+URL-REGEX,^https:\/\/gw\.line\.naver\.jp(?::443)?\/lass\/api\/v\d+\/ads(?:\?|$),REJECT
+
+# Current LINE Ads / Smart Channel
+URL-REGEX,^https:\/\/legy\.line-apps\.com(?::443)?\/ext\/lgfp\/lad\/v\d+(?:\?|$),REJECT
+URL-REGEX,^https:\/\/legy\.line-apps\.com(?::443)?\/ext\/smartch\/banner\/sch\/v\d+(?:\?|$),REJECT
+
+# Other explicit ad APIs
+URL-REGEX,^https:\/\/w\.line\.me(?::443)?\/adp\/api\/ad\/v\d+\/,REJECT
+URL-REGEX,^https:\/\/sch\.line\.me(?::443)?\/api\/v\d+\/ads(?:\?|$),REJECT
+
+# Smart Channel ad media CDN
+# Whole host is dedicated to ad media in collected traffic, so no MITM is needed.
+DOMAIN,ad.line-scdn.net,REJECT
+
+# Home / GEB promotional banner media
+# This host supplied the Home GEB banner creative captured from GetModulesByModuleIds.
+DOMAIN,ec-bot-obs.line-scdn.net,REJECT
 URL-REGEX,^https:\/\/legy\.line-apps\.com\/line\.gcs\.GcsModuleService\/GetModulesByModuleIds$,REJECT
-URL-REGEX,^https:\/\/legy\.line-apps\.com:443\/tr\/event$,REJECT
-URL-REGEX,^https:\/\/web-mmap-pay\.line-apps\.com\/tw\/liff\/campaign\/v1\/aggregate\/ad\/banner\/,REJECT-TINYGIF
-URL-REGEX,^https:\/\/w\.line\.me\/adp\/api\/ad\/v\d\/,REJECT-DROP
-URL-REGEX,^https:\/\/buy\.line\.me\/api\/graphql\?variables,REJECT
-URL-REGEX,^https:\/\/crs-event\.line\.me\/v\d\/imp,REJECT-DROP
-URL-REGEX,^https:\/\/obs\.line-scdn\.net\/0h.+\/(o|m)\d+x\d+$,REJECT-DROP
-URL-REGEX,^https:\/\/obs\.line-scdn\.net\/0hGH\d,REJECT-DROP
-URL-REGEX,^https:\/\/obs\.line-scdn\.net\/0h.+\/\d+p\.mp4$,REJECT-DROP
-URL-REGEX,^https:\/\/obs\.line-scdn\.net\/r\/linecrs\/.+\/m180x180$,REJECT-TINYGIF
-URL-REGEX,^https:\/\/d\.line-scdn\.net\/lcp-prod-photo\/20.+\.(jpg|jpeg|png),REJECT-TINYGIF
-URL-REGEX,^https:\/\/cix\.line-apps\.com\/R4\?,REJECT
-URL-REGEX,^https:\/\/scdn\.line-apps\.com\/appresources\/moretab\/list\.json,REJECT
-URL-REGEX,^https:\/\/scdn\.line-apps\.com\/lan\/image\/line\/bannerImageEvent\/,REJECT-DROP
-URL-REGEX,^https:\/\/scdn\.line-apps\.com\/lan\/document\/pageEvent\/line\/ios\/,REJECT-DROP
-URL-REGEX,^https:\/\/sch\.line\.me\/api\/v\d\/ads$,REJECT-DROP
-URL-REGEX,^https:\/\/uts-front\.line-apps\.com\/event$,REJECT-DROP
-URL-REGEX,^https:\/\/uts-front\.line-apps\.com\/settings$,REJECT-DROP
-URL-REGEX,^https:\/\/static\.line-scdn\.net\/ad-sdk\/,REJECT
-URL-REGEX,^https:\/\/nelo2-col\.linecorp\.com\/_store$,REJECT
+
+# LINE Web / LIFF Ads SDK
+URL-REGEX,^https:\/\/static\.line-scdn\.net(?::443)?\/ad-sdk\/,REJECT
+
+# LINE Pay / LIFF campaign banner
+URL-REGEX,^https:\/\/web-mmap-pay\.line-apps\.com(?::443)?\/tw\/liff\/campaign\/v\d+\/aggregate\/ad\/banner\/,REJECT
+
+# Legacy LINE event/banner assets
+URL-REGEX,^https:\/\/scdn\.line-apps\.com(?::443)?\/lan\/image\/line\/bannerImageEvent\/,REJECT
+URL-REGEX,^https:\/\/scdn\.line-apps\.com(?::443)?\/lan\/document\/pageEvent\/line\/ios\/,REJECT
+
+# ---- 以下為 jkgtw 版本未涵蓋, 沿用自舊版的規則 ----
+
+# Ad creatives on OBS (image / video)
+URL-REGEX,^https:\/\/obs\.line-scdn\.net(?::443)?\/0h.+\/(?:o|m)\d+x\d+$,REJECT-DROP
+URL-REGEX,^https:\/\/obs\.line-scdn\.net(?::443)?\/0hGH\d,REJECT-DROP
+URL-REGEX,^https:\/\/obs\.line-scdn\.net(?::443)?\/0h.+\/\d+p\.mp4$,REJECT-DROP
+URL-REGEX,^https:\/\/obs\.line-scdn\.net(?::443)?\/r\/linecrs\/.+\/m180x180$,REJECT-TINYGIF
+URL-REGEX,^https:\/\/d\.line-scdn\.net(?::443)?\/lcp-prod-photo\/20.+\.(?:jpg|jpeg|png),REJECT-TINYGIF
+
+# LINE 購物推薦
+URL-REGEX,^https:\/\/buy\.line\.me(?::443)?\/api\/graphql\?variables,REJECT
+
+# 主頁 / 錢包推廣
+URL-REGEX,^https:\/\/lan\.line\.me(?::443)?\/v1\/line\/ios,REJECT
+URL-REGEX,^https:\/\/scdn\.line-apps\.com(?::443)?\/appresources\/moretab\/list\.json,REJECT
+
+
+# ============================================================
+# 2. Telemetry / Tracking / Analytics / Diagnostics
+# ============================================================
+
+# LINE generic event tracking
+URL-REGEX,^https:\/\/gw\.line\.naver\.jp(?::443)?\/tr\/event(?:\?|$),REJECT
+URL-REGEX,^https:\/\/legy\.line-apps\.com(?::443)?\/tr\/event(?:\?|$),REJECT
+
+# Recommendation / content impression collector
+URL-REGEX,^https:\/\/crs-event\.line\.me(?::443)?\/v\d+\/imp(?:\?|$),REJECT
+
+# UTS analytics
+# uts-front is LINE's analytics endpoint; block the whole collector host.
+DOMAIN,uts-front.line-apps.com,REJECT
+
+# Also prevent LIFF/WebView pages from loading the UTS analytics SDK itself.
+# 暫時停用: 擋掉 SDK 會讓官方帳號頁面出現 "Application error: a client-side exception has occurred"
+# 追蹤資料仍由上方 uts-front.line-apps.com 阻擋
+# URL-REGEX,^https:\/\/static\.line-scdn\.net(?::443)?\/uts\/,REJECT
+
+# NELO2 diagnostics / log collector
+DOMAIN,nelo2-col.linecorp.com,REJECT
+
+# CIX client-information endpoint.
+# Observed requests include OS/app version, carrier, region and timestamp.
+# Keep this path-scoped instead of rejecting the entire cix.line-apps.com host.
+URL-REGEX,^https:\/\/cix\.line-apps\.com(?::443)?\/R\d+(?:\?|$),REJECT
+
 
 [MITM]
-hostname = %APPEND% a.line.me, ad.line-scdn.net, w.line.me, gw.line.naver.jp, lan.line.me, buy.line.me, crs-event.line.me, obs.line-scdn.net, d.line-scdn.net, scdn.line-apps.com, sch.line.me, static.line-scdn.net, nelo2-col.linecorp.com, uts-front.line-apps.com, cix.line-apps.com, scdn.line-apps.com, legy.line-apps.com, ec-bot-obs.line-scdn.net
+hostname = %APPEND% a.line.me, gw.line.naver.jp, legy.line-apps.com, w.line.me, sch.line.me, crs-event.line.me, static.line-scdn.net, web-mmap-pay.line-apps.com, scdn.line-apps.com, cix.line-apps.com, obs.line-scdn.net, d.line-scdn.net, buy.line.me, lan.line.me
