@@ -1,5 +1,5 @@
 #!name=Kill LINE TODAY 
-#!desc=去除 LINE TODAY瀏覽時的登入狀態，阻擋噁心的新聞興趣追蹤 v20261002.01 - 需啟用 MitM over HTTP/2，需啟用重寫Header
+#!desc=去除 LINE TODAY瀏覽時的登入狀態，阻擋噁心的新聞興趣追蹤 v20261006.01 - 需啟用 MitM over HTTP/2，需啟用重寫Header
 #!system=ios
 #!category=LINE Tweaks
 
@@ -11,11 +11,9 @@ URL-REGEX,^https:\/\/today\.line\.me\/webapi\/interaction(\/|\?|$),REJECT
 URL-REGEX,^https:\/\/today\.line\.me\/webapi\/social-feed(\/|\?|$),REJECT
 # Block Line ads
 URL-REGEX,^https:\/\/a\.line\.me\/lgfp\/lad(\/|\?|$),REJECT
-# 放行 loader.js: LINE Points 等頁面直接依賴它, 擋掉會讓頁面載入失敗
+# 放行 loader.js: LINE Points、LINE TODAY 等頁面直接依賴它, 擋掉會讓頁面載入失敗 (含 media=today)
 # loader 只負責載入 core/sdk_*.js, 實際的廣告 SDK 仍被擋下, loader 會自行吞掉載入失敗
 URL-REGEX,^https:\/\/static\.line-scdn\.net(?::443)?\/lineads\/(?!edge\/r\/loader\.js),REJECT
-# LINE TODAY 頁面不依賴 loader, 擋掉不影響閱讀
-URL-REGEX,^https:\/\/static\.line-scdn\.net(?::443)?\/lineads\/edge\/r\/loader\.js\?(?:[^#]*&)?media=today(?:&|#|$),REJECT
 
 # Block logging read history 
 URL-REGEX,^https:\/\/today\.line\.me\/webapi\/logging(\/|\?|$),REJECT
