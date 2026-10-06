@@ -1,5 +1,5 @@
 #!name=Kill LINE TODAY 
-#!desc=去除 LINE TODAY瀏覽時的登入狀態，阻擋噁心的新聞興趣追蹤 v20261006.01 - 需啟用 MitM over HTTP/2，需啟用重寫Header
+#!desc=去除 LINE TODAY瀏覽時的登入狀態，阻擋噁心的新聞興趣追蹤 v20261006.02 - 需啟用 MitM over HTTP/2，需啟用重寫Header
 #!system=ios
 #!category=LINE Tweaks
 
@@ -26,6 +26,10 @@ http-request ^https:\/\/today\.line\.me\/ header-del x-line-liff-token
 http-request ^https:\/\/today\.line\.me\/ header-del x-line-accesstoken
 http-request ^https:\/\/today\.line\.me\/ header-del x-line-liff-accesstoken
 http-request ^https:\/\/today\.line\.me\/ header-del baggage
+# 靜態 JS 的條件請求回 304 時, 伺服器會在 HTTP/2 上夾帶 body, Surge MITM 報錯
+# "HTTP/2 peer sent a body for a bodyless response" 導致頁面載入失敗; 移除條件標頭讓伺服器直接回 200
+http-request ^https:\/\/today\.line\.me\/next\/[^\/]+\/_next\/static\/ header-del if-none-match
+http-request ^https:\/\/today\.line\.me\/next\/[^\/]+\/_next\/static\/ header-del if-modified-since
 
 [MITM]
 hostname = %APPEND% today.line.me, a.line.me, static.line-scdn.net, sentry-uit.line-apps.com
