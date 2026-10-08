@@ -1,7 +1,7 @@
 #!name=Talkatone TW
-#!desc=Talkatone for Taiwanese v20261001.4
+#!desc=Talkatone for Taiwanese v20261008.1
 # Talkatone 在台灣使用中華電信固網出不去, 經測需要分流至行動網路才可正常連線, 並且內建Talkatone去廣告規則。
-# 登入時除了 tktn.at / tktn.be, 還會連 ip-api.com 及 inmobi / inner-active / mobilefuse / kochava 等 SDK,
+# 登入時除了 tktn.at / tktn.be, 還會連 inmobi / inner-active / mobilefuse / kochava 等 SDK,
 # 這些必須和登入走同一個出口 (行動網路) 且不可封鎖, 否則 Wi-Fi 下會無法登入。
 
 [Rule]
@@ -45,8 +45,6 @@ talkamobile.com = server:8.8.8.8
 *.talkamobile.com = server:8.8.8.8
 hcaptcha.com = server:8.8.8.8
 *.hcaptcha.com = server:8.8.8.8
-ip-api.com = server:8.8.8.8
-*.ip-api.com = server:8.8.8.8
 inmobi.com = server:8.8.8.8
 *.inmobi.com = server:8.8.8.8
 inner-active.mobi = server:8.8.8.8

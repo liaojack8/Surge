@@ -15,8 +15,7 @@ DOMAIN-SUFFIX,tktn.me
 # 登入時的人機驗證 (Security Check)
 DOMAIN-SUFFIX,hcaptcha.com
 
-# 登入時會檢查的 SDK / IP 地區查詢, 需與登入走同一出口
-DOMAIN-SUFFIX,ip-api.com
+# 登入時會檢查的 SDK, 需與登入走同一出口
 DOMAIN-SUFFIX,inmobi.com
 DOMAIN-SUFFIX,inner-active.mobi
 DOMAIN-SUFFIX,mobilefuse.com
